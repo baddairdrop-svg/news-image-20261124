@@ -276,7 +276,7 @@ def hero_riyadh(c, x, y, w, h):
                 c.set(x + tx + wx, y + h - 24 - th + wy, GOLD)
     # The PIF Tower, tallest, centre. Height capped so the tower and
     # its antenna stay inside the art box (top edge y).
-    tx, th = 120, 118
+    tx, th = 120, 96
     c.rect(x + tx, y + h - 24 - th, 66, th + 24, (52, 70, 110))
     c.rect(x + tx + 28, y + h - 24 - th - 6, 10, 6, (52, 70, 110))
     for wy in range(8, th, 11):
@@ -299,73 +299,75 @@ def hero_riyadh(c, x, y, w, h):
     c.rect(x, y + h - 24, w, 24, (24, 32, 56))
 
 
-def hero_zaporizhzhia(c, x, y, w, h):
-    """Apartment block hit overnight: smoke, broken corner, rescue."""
-    c.rect(x, y, w, h, (196, 205, 214))
-    c.rect(x, y + h - 30, w, 30, (120, 128, 138))
-    # Block, left-centre.
-    bx, by, bw, bh = x + 30, y + 34, 150, h - 64
-    c.rect(bx, by, bw, bh, (148, 152, 158))
-    c.rect(bx, by, bw, 10, (120, 124, 130))
-    for row in range(5):
-        for col in range(5):
-            wx = bx + 12 + col * 28
-            wy = by + 22 + row * 26
-            lit = (row + col) % 3 == 0
-            c.rect(wx, wy, 16, 18, GOLD if lit else (60, 64, 72))
-    # Broken top-right corner.
-    c.triangle(bx + bw - 52, by, bx + bw, by, bx + bw, by + 44, (196, 205, 214))
-    c.triangle(bx + bw - 52, by, bx + bw, by + 44, bx + bw - 52, by + 44,
-               (90, 94, 100))
-    # Smoke.
-    for sx, sy, sr in [(bx + bw - 30, by - 6, 12), (bx + bw - 8, by - 16, 15),
-                       (bx + bw + 14, by - 26, 11)]:
-        c.circle(sx, sy, sr, (110, 116, 124))
-    # Second block, right.
-    c.rect(x + 205, y + 70, 84, h - 100, (168, 172, 178))
-    for row in range(3):
-        for col in range(2):
-            c.rect(x + 217 + col * 34, y + 84 + row * 28, 18, 18,
-                   (60, 64, 72))
-    # Rescuers on the ground, and a red-cross flag.
-    for fx in (x + 60, x + 84):
-        c.circle(fx, y + h - 40, 4, NAVY)
-        c.rect(fx - 4, y + h - 35, 8, 14, NAVY)
-    c.line(x + 268, y + h - 48, x + 268, y + h - 24, INK)
-    c.rect(x + 268, y + h - 48, 22, 12, WHITE)
-    c.rect(x + 274, y + h - 44, 10, 3, RED)
-    c.rect(x + 278, y + h - 47, 3, 9, RED)
-
-
 def hero_huawei(c, x, y, w, h):
     """Courthouse columns and the scales of justice."""
     c.rect(x, y, w, h, CREAM2)
     # Courthouse.
-    cx, cy = x + w // 2, y + 18
-    c.triangle(cx - 110, cy + 34, cx + 110, cy + 34, cx, cy, NAVY)
-    c.rect(x + 42, cy + 34, w - 84, 8, NAVY)
+    cx, cy = x + w // 2, y + 14
+    c.triangle(cx - 110, cy + 28, cx + 110, cy + 28, cx, cy, NAVY)
+    c.rect(x + 42, cy + 28, w - 84, 6, NAVY)
     for i in range(5):
         px = x + 52 + i * 52
-        c.rect(px, cy + 42, 14, 96, WHITE)
-        c.frame(px, cy + 42, 14, 96, GREY)
-    c.rect(x + 42, cy + 138, w - 84, 10, NAVY)
+        c.rect(px, cy + 34, 14, 72, WHITE)
+        c.frame(px, cy + 34, 14, 72, GREY)
+    c.rect(x + 42, cy + 106, w - 84, 8, NAVY)
     # Scales, centre foreground.
-    sx, sy = cx, y + h - 78
-    c.rect(sx - 3, sy - 44, 6, 52, INK)
-    c.rect(sx - 52, sy - 44, 104, 4, INK)
-    c.line(sx - 52, sy - 40, sx - 78, sy - 8, INK)
-    c.line(sx - 52, sy - 40, sx - 26, sy - 8, INK)
-    c.line(sx + 52, sy - 40, sx + 26, sy - 8, INK)
-    c.line(sx + 52, sy - 40, sx + 78, sy - 8, INK)
-    c.triangle(sx - 88, sy - 8, sx - 16, sy - 8, sx - 52, sy + 12, GOLD)
-    c.triangle(sx + 16, sy - 8, sx + 88, sy - 8, sx + 52, sy + 12, GOLD)
-    c.rect(sx - 14, sy + 8, 28, 6, INK)
+    sx, sy = cx, y + h - 58
+    c.rect(sx - 3, sy - 36, 6, 44, INK)
+    c.rect(sx - 52, sy - 36, 104, 4, INK)
+    c.line(sx - 52, sy - 32, sx - 78, sy - 6, INK)
+    c.line(sx - 52, sy - 32, sx - 26, sy - 6, INK)
+    c.line(sx + 52, sy - 32, sx + 26, sy - 6, INK)
+    c.line(sx + 52, sy - 32, sx + 78, sy - 6, INK)
+    c.triangle(sx - 88, sy - 6, sx - 16, sy - 6, sx - 52, sy + 10, GOLD)
+    c.triangle(sx + 16, sy - 6, sx + 88, sy - 6, sx + 52, sy + 10, GOLD)
+    c.rect(sx - 14, sy + 6, 28, 6, INK)
     # Gavel, lower right.
-    gx, gy = x + w - 78, y + h - 44
+    gx, gy = x + w - 78, y + h - 30
     c.rect(gx, gy, 34, 12, (120, 72, 20))
-    c.line(gx + 8, gy + 12, gx - 6, gy + 30, (120, 72, 20))
-    c.line(gx + 9, gy + 12, gx - 5, gy + 30, (120, 72, 20))
-    c.line(gx + 10, gy + 12, gx - 4, gy + 30, (120, 72, 20))
+    c.line(gx + 8, gy + 12, gx - 6, gy + 28, (120, 72, 20))
+    c.line(gx + 9, gy + 12, gx - 5, gy + 28, (120, 72, 20))
+    c.line(gx + 10, gy + 12, gx - 4, gy + 28, (120, 72, 20))
+
+
+def hero_dronewar(c, x, y, w, h):
+    """Night schematic: a swarm over Russia, Moscow marked, AWACS above."""
+    c.rect(x, y, w, h, NIGHT)
+    for sx, sy in [(16, 12), (52, 20), (96, 10), (140, 18), (180, 8),
+                   (220, 16), (260, 10), (296, 18)]:
+        c.set(x + sx % w, y + sy, GOLD)
+        c.set(x + sx % w + 1, y + sy, GOLD)
+    # Landmass, centre.
+    c.rect(x + 60, y + 34, 190, 56, (128, 116, 82))
+    c.rect(x + 30, y + 52, 60, 38, (128, 116, 82))
+    c.rect(x + 230, y + 52, 62, 38, (128, 116, 82))
+    # Sea, bottom.
+    c.rect(x, y + h - 30, w, 30, (30, 48, 84))
+    # Drone swarm: white dots with short trails.
+    for dx, dy in [(70, 24), (100, 30), (130, 22), (160, 32), (190, 24),
+                   (220, 30), (250, 22), (280, 30), (85, 44), (150, 46),
+                   (215, 46), (265, 44)]:
+        c.line(x + dx - 8, y + dy, x + dx, y + dy, WHITE)
+        c.circle(x + dx, y + dy, 3, WHITE)
+    # Moscow, marked.
+    mx, my = x + 208, y + 62
+    c.circle(mx, my, 5, WHITE)
+    c.ring(mx, my, 10, RED, 2)
+    c.text(mx + 14, my - 4, "MOSCOW", 1, WHITE)
+    # Poland, left edge.
+    c.rect(x + 8, y + 62, 18, 6, WHITE)
+    c.rect(x + 8, y + 68, 18, 6, RED)
+    c.text(x + 8, y + 78, "POLAND", 1, WHITE)
+    # AWACS plane, upper right.
+    ax, ay = x + w - 66, y + 58
+    c.rect(ax, ay, 26, 6, WHITE)
+    c.line(ax + 6, ay + 6, ax + 20, ay - 6, WHITE)
+    c.line(ax + 6, ay + 6, ax + 20, ay + 14, WHITE)
+    c.text(ax - 4, ay + 18, "AWACS", 1, WHITE)
+    # Big 699 badge, bottom left.
+    c.rect(x + 10, y + h - 40, 118, 28, RED)
+    c.text(x + 18, y + h - 34, "699", 3, WHITE)
+    c.text(x + 74, y + h - 28, "DOWNED", 1, WHITE)
 
 
 # ---------------------------------------------------------------- grid icons
@@ -447,6 +449,14 @@ LAND = [
 ]
 
 
+def icon_oil(c, x, y, s):
+    """Oil derrick: two legs, a crossbar and a crown."""
+    c.line(x + 4, y + s, x + s // 2 - 2, y + 2, INK)
+    c.line(x + s - 4, y + s, x + s // 2 + 2, y + 2, INK)
+    c.line(x + 6, y + s - 8, x + s - 6, y + s - 8, INK)
+    c.rect(x + s // 2 - 5, y, 10, 6, INK)
+
+
 def draw_map(c, x, y, w, h, pins):
     """Dotted world map; pins is a list of (number, lon, lat)."""
     step_x = w / 64.0
@@ -467,80 +477,115 @@ def draw_map(c, x, y, w, h, pins):
 
 # ---------------------------------------------------------------- stories
 # Every item happened or was first reported on Tuesday 24 November 2026.
-# (place, category, headline, summary, source, lon, lat)
+# Badge: REPORTED = wires, OFFICIAL = on the record, CLAIM = one side says.
+# (place, category, headline, summary, source, lon, lat, badge)
 HEROES = [
+    ("MOSCOW", "WAR",
+     "RUSSIA SAYS 699 DRONES DOWNED",
+     "Overnight barrage, 355 aimed at Moscow; a drone strays into Poland. Zaporizhzhia strike kills 2.",
+     "REUTERS - AL JAZEERA", 37.6, 55.8, "REPORTED"),
     ("RIYADH", "MIDDLE EAST",
      "HOUTHI DRONE HITS RIYADH TOWER",
      "Second strike in less than a week on the PIF Tower, the capital's tallest. 11 people wounded.",
-     "REUTERS", 46.7, 24.7),
-    ("ZAPORIZHZHIA", "EUROPE",
-     "OVERNIGHT STRIKE HITS FLATS",
-     "Russian attack kills 2 and wounds 40, including four children, in the south-eastern city.",
-     "REUTERS", 35.2, 47.8),
+     "REUTERS", 46.7, 24.7, "REPORTED"),
     ("NEW YORK", "JUSTICE",
      "HUAWEI GUILTY ON 10 OF 12 COUNTS",
      "Brooklyn jury convicts the Chinese telecom giant of fraud and sanctions breaches.",
-     "REUTERS - WSJ", -74.0, 40.7),
+     "REUTERS - WSJ", -74.0, 40.7, "OFFICIAL"),
 ]
 
 GRID = [
     ("DAKAR", "SPORT",
      "SENEGAL ARE CHAMPIONS AGAIN",
      "Top sports court restores the AFCON title, overturning the forfeit to Morocco.",
-     "REUTERS - AP", -17.4, 14.7, icon_trophy),
+     "REUTERS - AP", -17.4, 14.7, icon_trophy, "REPORTED"),
     ("GULF OF FINLAND", "WAR",
      "ZELENSKYY CONFIRMS SHIP STRIKE",
      "President confirms Ukraine's drone strike on the Sparta II; he says it carried weapons.",
-     "BLOOMBERG - REUTERS", 27.0, 59.5, icon_ship),
+     "BLOOMBERG - REUTERS", 27.0, 59.5, icon_ship, "REPORTED"),
     ("GAZA CITY", "MIDDLE EAST",
      "HAMAS SECURITY CHIEF KILLED",
      "Israeli strike kills Naeem Abu Nahel and six others, including two police officers.",
-     "REUTERS", 34.5, 31.5, icon_shield),
+     "REUTERS", 34.5, 31.5, icon_shield, "REPORTED"),
     ("PARIS", "BUSINESS",
      "SANOFI BUYS INSMED FOR $41BN",
      "French drugmaker agrees its biggest deal in years, at $175 a share, for lung medicines.",
-     "REUTERS", 2.35, 48.85, icon_pill),
-    ("ESKISEHIR", "ACCIDENT",
-     "ARMY HELICOPTER CRASH KILLS 5",
-     "Turkish Air Force AS-532 comes down on a training flight; cause not yet known.",
-     "REUTERS", 30.5, 39.8, icon_heli),
-    ("STRAIT OF HORMUZ", "SHIPPING",
-     "IRAN SAYS 4 TANKERS HIT MINES",
-     "Tehran reports explosions east of the strait; maritime centre says the claim is unverified.",
-     "IRNA - JMIC", 56.5, 26.5, icon_anchor),
+     "REUTERS", 2.35, 48.85, icon_pill, "OFFICIAL"),
+    ("KUALA LUMPUR", "ASIA",
+     "MALAYSIA TO SEND 6,500 ROHINGYA BACK",
+     "Anwar tells parliament 6,500 Rohingya will go back to Myanmar, 1,500 by ship and 5,303 by air.",
+     "REUTERS", 101.7, 3.1, icon_anchor, "OFFICIAL"),
+    ("BAGHDAD", "MIDDLE EAST",
+     "BAGHDAD SEIZES KURDISH OILFIELDS",
+     "PM puts fields in Kirkuk, Diyala, Salahuddin and Nineveh under the federal Oil Ministry.",
+     "AL JAZEERA - REUTERS", 44.4, 33.3, icon_oil, "REPORTED"),
+]
+
+# One-line stories, numbers 10-30. Each is "PLACE - HEADLINE".
+ALSO = [
+    "ESKISEHIR - ARMY HELICOPTER CRASH KILLS 5",
+    "HORMUZ - IRAN SAYS 4TH TANKER HIT MINE (CLAIM)",
+    "HANOI - RESTAURANT BLAST KILLS 6",
+    "DHAKA - HASINA TO FLY HOME 16 DEC",
+    "NEW YORK - UN: 47,000 WOMEN KILLED BY PARTNERS",
+    "ULLEUNG - RUSSIAN JET TRIGGERS 3-MIN ALERT",
+    "BOUGAINVILLE - VOTE ON NATIONHOOD BEGINS",
+    "TAPLEJUNG - QUAKE M5.6, NO CASUALTIES",
+    "CIKANDE - FACTORY-FIRE TOLL RISES TO 26",
+    "HONIARA - SOLOMONS ENDS CHINA PACT",
+    "BERLIN - WORLD CHESS MATCH OPENS",
+    "NEW YORK - UN DEBATES AI AND WAR'S FUTURE",
+    "BRUSSELS - EU CAPS CHINESE HYBRID CARS AT 350K",
+    "MEXICO CITY - MEXICO TO TRY \"EL CHAPO ISIDRO\"",
+    "VILLAVICENCIO - CAR BOMB AT GOVERNOR'S OFFICE",
+    "WASHINGTON - MEGASPEED BLACKLISTED IN NVIDIA CASE",
+    "PENNSYLVANIA - 9TH US MEASLES DEATH THIS YEAR",
+    "CHILE - MOST DISTANT BLACK HOLE FOUND",
+    "JAKARTA - INDONESIA NAMES TWO VP CANDIDATES",
+    "BEIJING - OFFICIAL SENTENCED TO DEATH FOR SPYING",
+    "LISBON - PORTUGAL BUDGET VOTE, 2,864 AMENDMENTS",
 ]
 
 STATS = [
-    ("11", "WOUNDED IN RIYADH TOWER STRIKE"),
-    ("40", "WOUNDED IN ZAPORIZHZHIA"),
+    ("699", "DRONES DOWNED, RUSSIA SAYS"),
+    ("11", "WOUNDED IN RIYADH STRIKE"),
     ("10/12", "COUNTS: HUAWEI GUILTY"),
     ("$41BN", "SANOFI BUYS INSMED"),
-    ("5", "KILLED IN TURKISH CRASH"),
+    ("6,500", "ROHINGYA TO BE SENT BACK"),
+    ("26", "DEAD IN CIKANDE FIRE"),
 ]
 
 # Stories that look like 24 November news but are not. Each carries its
 # real date; none of them is presented as the day's news.
 DATE_CHECK = [
-    "ICJ: MYANMAR GENOCIDE RULING - 19 NOV",
+    "ICJ MYANMAR RULING - 19 NOV",
     "COP31 ENDS WITH NO DEAL - 22 NOV",
+    "VERSTAPPEN WINS LAS VEGAS GP - 22 NOV",
     "NVIDIA REINSTATES HUANG - 23 NOV",
     "RUSSIA WARNS ESTONIA - 23 NOV",
     "RUTTE SPACE-DEFENCE VOW - 23 NOV",
-    "UK WINS 2035 WOMEN'S WORLD CUP - 23 NOV",
+    "UK WINS 2035 WOMEN'S CUP - 23 NOV",
+    "YEMEN BUS STRIKE IN LAHJ - 23 NOV",
+    "GUTERRES AI CALL IN BARBADOS - 23 NOV",
+    "DENMARK 'GHETTO LAW' RULING - 23 NOV",
+    "EU 22ND SANCTIONS - 23 NOV",
     "SHENZHOU-24 LAUNCH - 25 NOV",
 ]
 
-PINS = [(i + 1, lon, lat) for i, (_, _, _, _, _, lon, lat)
-        in enumerate(HEROES)]
-PINS += [(i + 4, lon, lat) for i, (_, _, _, _, _, lon, lat, _)
-         in enumerate(GRID)]
+# Numbered map pins: the 13 most locatable stories.
+PINS = [
+    (1, 37.6, 55.8), (2, 46.7, 24.7), (3, -74.0, 40.7), (4, -17.4, 14.7),
+    (5, 27.0, 59.5), (6, 34.5, 31.5), (7, 2.35, 48.85), (8, 101.7, 3.1),
+    (9, 44.4, 33.3), (10, 30.5, 39.8), (11, 56.5, 26.5), (12, 105.8, 21.0),
+    (13, 90.4, 23.8),
+]
 
 
 # ---------------------------------------------------------------- layout
 def draw_masthead(c):
     c.rect(0, 0, W, 108, BLACK)
     c.text(16, 16, "THE WORLD IN ONE DAY", 5, WHITE)
-    c.text(16, 66, "ALL TIMES UTC - ONE DAY - ONE PAGE", 2, GOLD)
+    c.text(16, 66, "ALL TIMES UTC - ONE DAY - ONE PAGE - 30 STORIES", 2, GOLD)
     c.text_right(1008, 12, "TUESDAY", 2, WHITE)
     c.text_right(1008, 34, "24 NOVEMBER", 3, WHITE)
     c.text_right(1008, 66, "2026", 3, RED)
@@ -548,8 +593,8 @@ def draw_masthead(c):
 
 
 def draw_region_strip(c):
-    c.text_center(512, 118, "9 STORIES - MIDDLE EAST 3 - EUROPE 3 - "
-                 "AFRICA 1 - AMERICAS 1 - ASIA 1", 2, NAVY)
+    c.text_center(512, 118, "EUROPE 7 - MIDDLE EAST 4 - ASIA 8 - "
+                 "AFRICA 1 - AMERICAS 7 - OCEANIA 2 - GLOBAL 1", 2, NAVY)
 
 
 def draw_timeline(c):
@@ -559,10 +604,10 @@ def draw_timeline(c):
                  1, GREY)
     bx, bw = 12, 248
     blocks = [
-        ("00-06 OVERNIGHT - STRIKE 2", 2),
+        ("00-06 OVERNIGHT - DRONE WAR 1", 1),
         ("06-12 MORNING - DEAL 7, 06:43 UTC", 7),
         ("12-18 AFTERNOON", None),
-        ("18-24 NIGHT - CRASH 8, 19:52 UTC", 8),
+        ("18-24 NIGHT - CRASH 10, 19:52 UTC", 10),
     ]
     for i, (lab, num) in enumerate(blocks):
         x0 = bx + i * bw
@@ -576,77 +621,105 @@ def draw_timeline(c):
         c.text(tx, y + 27, lab, 1, INK)
 
 
+BADGE_COLORS = {"REPORTED": (70, 90, 120), "OFFICIAL": (46, 125, 50),
+                "CLAIM": (178, 34, 34)}
+
+
+def draw_badge(c, right, y, text):
+    """Small filled badge, right-aligned at x=right, top y."""
+    bw = len(text) * 5 + 10
+    c.rect(right - bw, y, bw, 12, BADGE_COLORS[text])
+    c.text(right - bw + 5, y + 2, text, 1, WHITE)
+
+
 def draw_hero(c, x, y, w, h, num, art, place, cat, headline, summary,
-              source):
+              source, badge):
     c.rect(x, y, w, h, WHITE)
     c.frame(x, y, w, h, INK, 2)
-    art(c, x + 2, y + 2, w - 4, 148)
+    art(c, x + 2, y + 2, w - 4, 130)
     c.rect(x + 2, y + 2, 24, 24, RED)
     c.text(x + 9, y + 8, str(num), 2, WHITE)
-    ty = y + 158
+    ty = y + 138
     c.text(x + 10, ty, place + " - " + cat, 1, RED)
+    draw_badge(c, x + w - 10, ty - 2, badge)
     ty += 14
     ty = c.para(x + 10, ty, headline, 2, INK, w - 20, leading=17)
     ty += 2
     ty = c.para(x + 10, ty, summary, 1, INK, w - 20, leading=10)
-    c.text(x + 10, y + h - 16, source, 1, GREY)
+    c.text(x + 10, y + h - 14, source, 1, GREY)
 
 
 def draw_grid_card(c, x, y, w, h, num, icon, place, cat, headline,
-                   summary, source):
+                   summary, source, badge):
     c.rect(x, y, w, h, WHITE)
     c.frame(x, y, w, h, GREY)
     c.rect(x, y, 22, 22, RED)
     c.text(x + 7, y + 7, str(num), 1, WHITE)
     c.text(x + 30, y + 6, place + " - " + cat, 1, RED)
-    icon(c, x + w - 32, y + 6, 24)
-    ty = c.para(x + 10, y + 30, headline, 2, INK, w - 20, leading=17)
-    ty = c.para(x + 10, ty + 2, summary, 1, INK, w - 20, leading=10)
-    c.text(x + 10, y + h - 15, source, 1, GREY)
+    draw_badge(c, x + w - 10, y + 4, badge)
+    ty = c.para(x + 10, y + 28, headline, 2, INK, w - 20, leading=17)
+    ty = c.para(x + 10, ty + 2, summary, 1, INK, w - 40, leading=10)
+    icon(c, x + w - 28, y + h - 30, 20)
+    c.text(x + 10, y + h - 14, source, 1, GREY)
 
 
 def draw_stats(c):
-    y, h = 458, 62
+    y, h = 416, 56
     c.rect(0, y, W, h, NAVY)
-    cw = W // 5
+    cw = W // 6
     for i, (num, label) in enumerate(STATS):
         x0 = i * cw
         if i:
             c.vline(x0, y + 8, h - 16, (90, 105, 140), 1)
         c.text_center(x0 + cw // 2, y + 8, num, 3, GOLD)
-        c.text_center(x0 + cw // 2, y + 38, label, 1, WHITE)
+        c.text_center(x0 + cw // 2, y + 36, label, 1, WHITE)
 
 
-def draw_map_and_datecheck(c):
-    y, h = 792, 158
+def draw_map_and_also(c):
+    y, h = 720, 168
     # Map, left.
     c.text(12, y, "WHERE IT HAPPENED", 2, INK)
-    draw_map(c, 12, y + 22, 600, h - 26, PINS)
-    # Date check, right.
-    dx, dw = 640, 372
-    c.rect(dx, y, dw, h, WHITE)
-    c.frame(dx, y, dw, h, RED, 2)
-    c.rect(dx, y, dw, 26, RED)
-    c.text(dx + 10, y + 6, "DATE CHECK", 2, WHITE)
-    c.text_right(dx + dw - 10, y + 9, "EXCLUDED AS THE WRONG DAY", 1, WHITE)
-    iy = y + 34
-    for item in DATE_CHECK:
-        c.text(dx + 10, iy, "X " + item, 1, DARKRED)
-        iy += 16
+    c.text_right(372, y + 3, "PINS CARRY THE STORY NUMBERS", 1, GREY)
+    draw_map(c, 12, y + 22, 360, h - 26, PINS)
+    # Also list, right: two columns of one-liners, numbers 10-30.
+    ax = 392
+    c.text(ax, y, "ALSO ON TUESDAY 24 NOV", 2, INK)
+    for j, item in enumerate(ALSO):
+        col = j // 11
+        row = j % 11
+        ix = ax + col * 306
+        iy = y + 22 + row * 13
+        c.text(ix, iy, "%d %s" % (10 + j, item), 1, INK)
+
+
+def draw_datecheck(c):
+    y, h = 894, 64
+    c.rect(12, y, W - 24, h, WHITE)
+    c.frame(12, y, W - 24, h, RED, 2)
+    c.rect(12, y, W - 24, 22, RED)
+    c.text(22, y + 4, "DATE CHECK", 2, WHITE)
+    c.text_right(1002, y + 7, "EXCLUDED AS THE WRONG DAY", 1, WHITE)
+    for i, item in enumerate(DATE_CHECK):
+        ix = 22 + (i % 4) * 250
+        iy = y + 28 + (i // 4) * 12
+        c.text(ix, iy, "X " + item, 1, DARKRED)
 
 
 def draw_footer(c):
     y = 962
     c.hline(12, y, W - 24, GREY, 1)
-    c.text_center(512, y + 10,
+    c.text_center(512, y + 8,
                   "EVERY STORY ABOVE HAPPENED OR WAS FIRST REPORTED ON "
                   "TUESDAY 24 NOVEMBER 2026, AS THE NAMED OUTLETS "
                   "REPORTED IT.", 1, INK)
-    c.text_center(512, y + 26,
+    c.text_center(512, y + 22,
+                  "CERTAINTY: REPORTED = WIRES - OFFICIAL = ON THE "
+                  "RECORD - CLAIM = ONE SIDE SAYS", 1, INK)
+    c.text_center(512, y + 36,
                   "MAP AND DRAWINGS ARE ORIGINAL VECTOR ART.", 1, GREY)
-    c.text_center(512, y + 42,
+    c.text_center(512, y + 50,
                   "SOURCES: REUTERS - BLOOMBERG - WSJ - AP - CNN - "
-                  "AL JAZEERA - IRNA - JMIC", 1, GREY)
+                  "AL JAZEERA - IRNA - JMIC - YONHAP - XINHUA - UN", 1, GREY)
 
 
 def build():
@@ -654,18 +727,20 @@ def build():
     draw_masthead(c)
     draw_region_strip(c)
     draw_timeline(c)
-    arts = [hero_riyadh, hero_zaporizhzhia, hero_huawei]
-    for i, (place, cat, headline, summary, source, _, _) in enumerate(HEROES):
-        draw_hero(c, 12 + i * 336, 188, 328, 262, i + 1, arts[i],
-                  place, cat, headline, summary, source)
+    arts = [hero_dronewar, hero_riyadh, hero_huawei]
+    for i, (place, cat, headline, summary, source, _, _, badge) in \
+            enumerate(HEROES):
+        draw_hero(c, 12 + i * 336, 188, 328, 222, i + 1, arts[i],
+                  place, cat, headline, summary, source, badge)
     draw_stats(c)
-    for i, (place, cat, headline, summary, source, _, _, icon) in \
+    for i, (place, cat, headline, summary, source, _, _, icon, badge) in \
             enumerate(GRID):
         gx = 12 + (i % 3) * 336
-        gy = 528 + (i // 3) * 128
-        draw_grid_card(c, gx, gy, 328, 120, i + 4, icon,
-                       place, cat, headline, summary, source)
-    draw_map_and_datecheck(c)
+        gy = 480 + (i // 3) * 120
+        draw_grid_card(c, gx, gy, 328, 112, i + 4, icon,
+                       place, cat, headline, summary, source, badge)
+    draw_map_and_also(c)
+    draw_datecheck(c)
     draw_footer(c)
     return c
 

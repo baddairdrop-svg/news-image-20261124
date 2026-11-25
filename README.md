@@ -15,29 +15,45 @@ entered by **@badd-airdrop2**.
 midnight, 1024x1024. A black masthead, a region-count strip, a
 four-block timeline spine (00-06 / 06-12 / 12-18 / 18-24 UTC) with a
 red dot on each story that carries a reported time, three hero cards
-with drawn scenes, a five-number stat strip, a six-card grid numbered
-4-9, a dotted world map with numbered pins, and a red DATE CHECK box.
+with drawn scenes, a six-number stat strip, six numbered grid cards, a
+dotted world map with 13 numbered pins, a 21-item "ALSO ON TUESDAY 24
+NOV" list, and a red DATE CHECK box. 30 stories in all, across 7
+regions.
+
+Every card carries a certainty badge — REPORTED (wires), OFFICIAL (on
+the record), CLAIM (one side says) — explained in the footer.
 
 Every story on the page happened or was first reported on Tuesday
 24 November 2026, as the named outlets reported it. Stories that look
 like 24 November news but are not are listed in the DATE CHECK box
 with their real dates, not presented as the day's news.
 
-1. **Riyadh tower struck** — A Houthi drone hits the PIF Tower,
+1. **Drone war** — Russia says it shot down 699 Ukrainian drones
+   overnight, 355 aimed at Moscow; a drone strays into Poland and
+   NATO sends an AWACS. A strike on Zaporizhzhia kills 2.
+   (Reuters, Al Jazeera)
+2. **Riyadh tower struck** — A Houthi drone hits the PIF Tower,
    the capital's tallest, a second strike in less than a week.
    11 people wounded. (Reuters)
-2. **Zaporizhzhia struck overnight** — A Russian attack kills 2
-   and wounds 40, including four children. (Reuters)
 3. **Huawei guilty** — A Brooklyn jury convicts the Chinese
    telecom giant on 10 of 12 counts. (Reuters, WSJ)
 
 Grid: Senegal reinstated as Africa Cup champions (CAS); Zelenskyy
 confirms Ukraine's strike on the Russian ship Sparta II; a Gaza
 strike kills Hamas security chief Naeem Abu Nahel and six others;
-Sanofi agrees to buy Insmed for $41bn; a Turkish Air Force
-helicopter crashes in Eskisehir, killing 5; Iran says four tankers
-hit mines in the Strait of Hormuz, a claim the maritime centre says
-is unverified.
+Sanofi agrees to buy Insmed for $41bn; Malaysia will send 6,500
+Rohingya back to Myanmar; Baghdad takes over Kurdish-held oilfields.
+
+The ALSO list adds the Eskisehir helicopter crash, Iran's claim of a
+fourth tanker hit by a mine in Hormuz, the Hanoi restaurant blast,
+Hasina's planned return, the UN's 47,000 women killed by partners, the
+Ulleung jet alert, the Bougainville vote, the Taplejung quake, the
+Cikande fire toll, the Solomons pact, the world chess match, the UN
+AI debate, the EU hybrid-car cap, Mexico's "El Chapo Isidro" trial,
+the Villavicencio car bomb, the Megaspeed blacklist, the ninth US
+measles death, the most distant black hole, Indonesia's VP
+candidates, a death sentence for spying in Beijing, and Portugal's
+budget vote.
 
 No quotes, numbers or faces are invented, and no real person is drawn.
 Map and drawings are original vector art.
