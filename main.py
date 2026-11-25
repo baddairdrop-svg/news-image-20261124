@@ -735,7 +735,7 @@ def hero_dronewar(c, x, y, w, h):
     c.text(x + 6, y + 72, "POLAND", SANSB, SANSB_EM, SANSB_ASC, 7.5, NAVY,
            tracking=0.6)
     # Black Sea label.
-    c.text(x + w * 0.42, y + h - 8, "BLACK SEA", SANSB, SANSB_EM,
+    c.text(x + w * 0.48, y + h - 8, "BLACK SEA", SANSB, SANSB_EM,
            SANSB_ASC, 7.5, WHITE, tracking=1.2)
     # Drone swarm with dotted trails, flying west.
     for dx, dy in [(250, 18), (220, 26), (190, 16), (160, 24), (130, 18),
@@ -778,7 +778,7 @@ def hero_riyadh(c, x, y, w, h):
     c.text(x + 4, y + 52, "RED SEA", SANSB, SANSB_EM, SANSB_ASC, 7.5,
            WHITE, tracking=0.8)
     # Yemen label (southwest).
-    c.text(x + w * 0.18, y + h - 34, "YEMEN", SANSB, SANSB_EM, SANSB_ASC,
+    c.text(x + w * 0.16, y + h - 52, "YEMEN", SANSB, SANSB_EM, SANSB_ASC,
            7.5, NAVY, tracking=0.8)
     # Drone path from the southwest to Riyadh.
     rx, ry = x + w * 0.52, y + h * 0.42
