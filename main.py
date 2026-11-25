@@ -269,14 +269,14 @@ def hero_riyadh(c, x, y, w, h):
         c.set(x + sx % w, y + sy, GOLD)
         c.set(x + sx % w + 1, y + sy, GOLD)
     # Distant towers.
-    for tx, th in [(8, 70), (48, 95), (250, 80), (288, 60)]:
+    for tx, th in [(8, 64), (48, 80), (250, 72), (288, 54)]:
         c.rect(x + tx, y + h - 24 - th, 26, th + 24, (38, 52, 86))
         for wy in range(6, th, 12):
             for wx in range(5, 22, 8):
                 c.set(x + tx + wx, y + h - 24 - th + wy, GOLD)
     # The PIF Tower, tallest, centre. Height capped so the tower and
     # its antenna stay inside the art box (top edge y).
-    tx, th = 120, 96
+    tx, th = 120, 78
     c.rect(x + tx, y + h - 24 - th, 66, th + 24, (52, 70, 110))
     c.rect(x + tx + 28, y + h - 24 - th - 6, 10, 6, (52, 70, 110))
     for wy in range(8, th, 11):
@@ -286,7 +286,7 @@ def hero_riyadh(c, x, y, w, h):
     bx, by = x + tx + 33, y + h - 24 - th + 6
     c.circle(bx, by, 16, RED)
     c.circle(bx, by, 9, GOLD)
-    for dx, dy in [(-24, -10), (24, -12), (-20, 12), (26, 10), (0, -26)]:
+    for dx, dy in [(-24, -10), (24, -12), (-20, 12), (26, 10), (0, -18)]:
         c.line(bx, by, bx + dx, by + dy, RED)
     # Drone, upper right.
     dx, dy = x + w - 52, y + 26
@@ -308,9 +308,9 @@ def hero_huawei(c, x, y, w, h):
     c.rect(x + 42, cy + 28, w - 84, 6, NAVY)
     for i in range(5):
         px = x + 52 + i * 52
-        c.rect(px, cy + 34, 14, 72, WHITE)
-        c.frame(px, cy + 34, 14, 72, GREY)
-    c.rect(x + 42, cy + 106, w - 84, 8, NAVY)
+        c.rect(px, cy + 34, 14, 58, WHITE)
+        c.frame(px, cy + 34, 14, 58, GREY)
+    c.rect(x + 42, cy + 92, w - 84, 8, NAVY)
     # Scales, centre foreground.
     sx, sy = cx, y + h - 58
     c.rect(sx - 3, sy - 36, 6, 44, INK)
@@ -508,42 +508,42 @@ def draw_map(c, x, y, w, h, pins):
 HEROES = [
     ("MOSCOW", "WAR",
      "RUSSIA SAYS 699 DRONES DOWNED",
-     "Overnight barrage, 355 aimed at Moscow; a drone strays into Poland. Zaporizhzhia strike kills 2, wounds 40+.",
+     "355 at Moscow; drone into Poland; Zaporizhzhia: 2 killed, 40+ wounded.",
      "REUTERS - AL JAZEERA", 37.6, 55.8, "REPORTED"),
     ("RIYADH", "MIDDLE EAST",
      "SECOND DRONE HITS RIYADH TOWER",
-     "Saudi blames a Houthi drone for the second strike in under a week on a tower in the financial district. 11 people wounded.",
+     "Saudi blames a Houthi drone; 11 people wounded.",
      "REUTERS", 46.7, 24.7, "REPORTED"),
     ("NEW YORK", "JUSTICE",
      "HUAWEI GUILTY ON 10 OF 12 COUNTS",
-     "Brooklyn jury convicts the Chinese telecom giant of fraud and sanctions breaches, clears it of racketeering.",
+     "Brooklyn jury: fraud, sanctions breaches; cleared of racketeering.",
      "REUTERS - WSJ", -74.0, 40.7, "OFFICIAL"),
 ]
 
 GRID = [
     ("DAKAR", "SPORT",
      "SENEGAL ARE CHAMPIONS AGAIN",
-     "CAS restores the AFCON title, overturning the forfeit to Morocco.",
+     "CAS gives Senegal the title back.",
      "REUTERS - AP", -17.4, 14.7, icon_trophy, "REPORTED"),
     ("GULF OF FINLAND", "WAR",
      "ZELENSKYY CONFIRMS SATURDAY SHIP STRIKE",
-     "President confirms Ukraine's strike on the Sparta II; says it carried weapons - unverified.",
+     "Sparta II weapons claim unverified.",
      "BLOOMBERG - REUTERS", 27.0, 59.5, icon_ship, "REPORTED"),
     ("GAZA CITY", "MIDDLE EAST",
      "HAMAS SECURITY CHIEF KILLED",
-     "Israeli strike kills Naeem Abu Nahel and six others, including two police officers.",
+     "Naeem Abu Nahel and six others killed.",
      "REUTERS", 34.5, 31.5, icon_shield, "REPORTED"),
     ("PARIS", "BUSINESS",
      "SANOFI BUYS INSMED FOR $41BN",
-     "French drugmaker agrees its biggest deal in years, at $175 a share, for lung medicines.",
+     "At $175 a share, for lung medicines.",
      "REUTERS", 2.35, 48.85, icon_pill, "OFFICIAL"),
     ("KUALA LUMPUR", "ASIA",
      "MALAYSIA TO SEND 6,803 BACK TO MYANMAR",
-     "Anwar tells parliament 6,803 Myanmar nationals will go back, 1,500 by ship and 5,303 by air.",
+     "1,500 by ship, 5,303 by air.",
      "REUTERS", 101.7, 3.1, icon_anchor, "OFFICIAL"),
     ("BAGHDAD", "MIDDLE EAST",
      "BAGHDAD SEIZES KURDISH OILFIELDS",
-     "PM puts fields in Kirkuk, Diyala, Salahuddin and Nineveh under the federal Oil Ministry.",
+     "Kirkuk, Diyala, Salahuddin, Nineveh.",
      "AL JAZEERA - REUTERS", 44.4, 33.3, icon_oil, "REPORTED"),
 ]
 
@@ -662,16 +662,16 @@ def draw_hero(c, x, y, w, h, num, art, place, cat, headline, summary,
               source, badge):
     c.rect(x, y, w, h, WHITE)
     c.frame(x, y, w, h, INK, 2)
-    art(c, x + 2, y + 2, w - 4, 130)
+    art(c, x + 2, y + 2, w - 4, 116)
     c.rect(x + 2, y + 2, 24, 24, RED)
     c.text(x + 9, y + 8, str(num), 2, WHITE)
-    ty = y + 138
+    ty = y + 124
     c.text(x + 10, ty, place + " - " + cat, 1, RED)
     draw_badge(c, x + w - 10, ty - 2, badge)
     ty += 14
-    ty = c.para(x + 10, ty, headline, 2, INK, w - 20, leading=17)
+    ty = c.para(x + 10, ty, headline, 2, INK, w - 20, leading=15)
     ty += 2
-    ty = c.para(x + 10, ty, summary, 1, INK, w - 20, leading=10)
+    ty = c.para(x + 10, ty, summary, 2, INK, w - 20, leading=15)
     c.text(x + 10, y + h - 14, source, 1, GREY)
 
 
@@ -684,7 +684,7 @@ def draw_grid_card(c, x, y, w, h, num, icon, place, cat, headline,
     c.text(x + 30, y + 6, place + " - " + cat, 1, RED)
     draw_badge(c, x + w - 10, y + 4, badge)
     ty = c.para(x + 10, y + 28, headline, 2, INK, w - 20, leading=17)
-    ty = c.para(x + 10, ty + 2, summary, 1, INK, w - 40, leading=10)
+    ty = c.para(x + 10, ty + 2, summary, 2, INK, w - 40, leading=15)
     icon(c, x + w - 28, y + h - 30, 20)
     c.text(x + 10, y + h - 14, source, 1, GREY)
 
@@ -756,7 +756,7 @@ def build():
     arts = [hero_dronewar, hero_riyadh, hero_huawei]
     for i, (place, cat, headline, summary, source, _, _, badge) in \
             enumerate(HEROES):
-        draw_hero(c, 12 + i * 336, 188, 328, 222, i + 1, arts[i],
+        draw_hero(c, 12 + i * 336, 184, 328, 230, i + 1, arts[i],
                   place, cat, headline, summary, source, badge)
     draw_stats(c)
     for i, (place, cat, headline, summary, source, _, _, icon, badge) in \
