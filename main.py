@@ -512,8 +512,8 @@ GRID = [
      "French drugmaker agrees its biggest deal in years, at $175 a share, for lung medicines.",
      "REUTERS", 2.35, 48.85, icon_pill, "OFFICIAL"),
     ("KUALA LUMPUR", "ASIA",
-     "MALAYSIA TO SEND 6,500 ROHINGYA BACK",
-     "Anwar tells parliament 6,500 Rohingya will go back to Myanmar, 1,500 by ship and 5,303 by air.",
+     "MALAYSIA TO SEND 6,803 BACK TO MYANMAR",
+     "Anwar tells parliament 6,803 Myanmar nationals will go back, 1,500 by ship and 5,303 by air.",
      "REUTERS", 101.7, 3.1, icon_anchor, "OFFICIAL"),
     ("BAGHDAD", "MIDDLE EAST",
      "BAGHDAD SEIZES KURDISH OILFIELDS",
@@ -551,7 +551,7 @@ STATS = [
     ("11", "WOUNDED IN RIYADH STRIKE"),
     ("10/12", "COUNTS: HUAWEI GUILTY"),
     ("$41BN", "SANOFI BUYS INSMED"),
-    ("6,500", "ROHINGYA TO BE SENT BACK"),
+    ("6,803", "MYANMAR NATIONALS TO RETURN"),
     ("26", "DEAD IN CIKANDE FIRE"),
 ]
 
