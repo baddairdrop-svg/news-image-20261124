@@ -392,7 +392,6 @@ def icon_shield(c, x, y, s):
     c.rect(x + s // 4, y, s // 2, s // 2, RED)
     c.triangle(x + s // 4, y + s // 2, x + 3 * s // 4, y + s // 2,
                x + s // 2, y + s, RED)
-    c.text(x + s // 2 - 3, y + 2, "7", 1, WHITE)
 
 
 def icon_pill(c, x, y, s):
@@ -467,12 +466,39 @@ def draw_map(c, x, y, w, h, pins):
             for col in range(lo, hi + 1):
                 cx = int(x + (col + 0.5) * step_x)
                 c.circle(cx, cy, 2, (150, 158, 168))
+    # Mediterranean gap (row 8, lat ~35N) so Europe and Africa read
+    # apart instead of one blob; UK and Japan are too small for the
+    # coarse mask, so they get dots of their own.
+    for col in range(30, 38):
+        cx = int(x + (col + 0.5) * step_x)
+        cy = int(y + (8 + 0.5) * step_y)
+        c.circle(cx, cy, 2, PAPER)
+    for r, col in [(5, 30), (5, 31), (6, 30), (7, 56), (7, 57),
+                   (8, 56), (9, 55)]:
+        cx = int(x + (col + 0.5) * step_x)
+        cy = int(y + (r + 0.5) * step_y)
+        c.circle(cx, cy, 2, (150, 158, 168))
+    # The Europe / Middle East pins sit within ~30 px of each other, so
+    # their numbers get leader-line labels offset from the true spot.
+    # Offsets are label-box centres, in px from the pin.
+    LEADER = {1: (8, -24), 2: (4, 24), 5: (-30, -16), 6: (-10, 22),
+              7: (-30, -2), 9: (26, -6), 10: (-42, -8), 11: (22, 22)}
     for num, lon, lat in pins:
         px = int(x + (lon + 180.0) / 360.0 * w)
         py = int(y + (90.0 - lat) / 180.0 * h)
-        c.circle(px, py, 7, RED)
-        c.ring(px, py, 7, WHITE, 1)
-        c.text(px - 3, py - 3, str(num), 1, WHITE)
+        if num in LEADER:
+            dx, dy = LEADER[num]
+            lx, ly = px + dx, py + dy
+            c.circle(px, py, 3, RED)
+            c.line(px, py, lx, ly, RED)
+            c.rect(lx - 7, ly - 7, 14, 14, (255, 255, 255))
+            c.frame(lx - 7, ly - 7, 14, 14, RED)
+            s = str(num)
+            c.text(lx - (3 if len(s) == 1 else 6), ly - 3, s, 1, INK)
+        else:
+            c.circle(px, py, 7, RED)
+            c.ring(px, py, 7, WHITE, 1)
+            c.text(px - 3, py - 3, str(num), 1, WHITE)
 
 
 # ---------------------------------------------------------------- stories
@@ -482,26 +508,26 @@ def draw_map(c, x, y, w, h, pins):
 HEROES = [
     ("MOSCOW", "WAR",
      "RUSSIA SAYS 699 DRONES DOWNED",
-     "Overnight barrage, 355 aimed at Moscow; a drone strays into Poland. Zaporizhzhia strike kills 2.",
+     "Overnight barrage, 355 aimed at Moscow; a drone strays into Poland. Zaporizhzhia strike kills 2, wounds 40+.",
      "REUTERS - AL JAZEERA", 37.6, 55.8, "REPORTED"),
     ("RIYADH", "MIDDLE EAST",
      "SECOND DRONE HITS RIYADH TOWER",
-     "Saudi blames a Houthi drone for the strike on the PIF Tower, the capital's tallest. 11 people wounded.",
+     "Saudi blames a Houthi drone for the second strike in under a week on a tower in the financial district. 11 people wounded.",
      "REUTERS", 46.7, 24.7, "REPORTED"),
     ("NEW YORK", "JUSTICE",
      "HUAWEI GUILTY ON 10 OF 12 COUNTS",
-     "Brooklyn jury convicts the Chinese telecom giant of fraud and sanctions breaches.",
+     "Brooklyn jury convicts the Chinese telecom giant of fraud and sanctions breaches, clears it of racketeering.",
      "REUTERS - WSJ", -74.0, 40.7, "OFFICIAL"),
 ]
 
 GRID = [
     ("DAKAR", "SPORT",
      "SENEGAL ARE CHAMPIONS AGAIN",
-     "Top sports court restores the AFCON title, overturning the forfeit to Morocco.",
+     "CAS restores the AFCON title, overturning the forfeit to Morocco.",
      "REUTERS - AP", -17.4, 14.7, icon_trophy, "REPORTED"),
     ("GULF OF FINLAND", "WAR",
-     "ZELENSKYY CONFIRMS SHIP STRIKE",
-     "President confirms Ukraine's drone strike on the Sparta II; he says it carried weapons.",
+     "ZELENSKYY CONFIRMS SATURDAY SHIP STRIKE",
+     "President confirms Ukraine's strike on the Sparta II; says it carried weapons - unverified.",
      "BLOOMBERG - REUTERS", 27.0, 59.5, icon_ship, "REPORTED"),
     ("GAZA CITY", "MIDDLE EAST",
      "HAMAS SECURITY CHIEF KILLED",
@@ -532,15 +558,15 @@ ALSO = [
     "BOUGAINVILLE - VOTE ON NATIONHOOD BEGINS",
     "TAPLEJUNG - QUAKE M5.6, NO CASUALTIES",
     "CIKANDE - FACTORY-FIRE TOLL RISES TO 26",
-    "HONIARA - SOLOMONS ENDS CHINA PACT",
+    "NEW YORK - DOW TOPS 50,000 AS NASDAQ SLIDES",
     "BERLIN - WORLD CHESS MATCH OPENS",
     "NEW YORK - UN DEBATES AI AND WAR'S FUTURE",
     "BRUSSELS - EU CAPS CHINESE HYBRID CARS AT 350K",
     "MEXICO CITY - MEXICO TO TRY \"EL CHAPO ISIDRO\"",
-    "VILLAVICENCIO - CAR BOMB AT GOVERNOR'S OFFICE",
-    "WASHINGTON - MEGASPEED BLACKLISTED IN NVIDIA CASE",
-    "PENNSYLVANIA - 9TH US MEASLES DEATH THIS YEAR",
-    "CHILE - MOST DISTANT BLACK HOLE FOUND",
+    "ITURI - WHO STAFF FREED AFTER 3 DAYS TRAPPED",
+    "ALBANY - NEW YORK BANS AI CHATBOT TOYS",
+    "LONDON - UK PROBES NUCLEAR-TEST VETERANS",
+    "SPACE - EUCLID FINDS MOST DISTANT QUASAR",
     "JAKARTA - INDONESIA NAMES TWO VP CANDIDATES",
     "BEIJING - OFFICIAL SENTENCED TO DEATH FOR SPYING",
     "LISBON - PORTUGAL BUDGET VOTE, 2,864 AMENDMENTS",
@@ -567,8 +593,8 @@ DATE_CHECK = [
     "UK WINS 2035 WOMEN'S CUP - 23 NOV",
     "YEMEN BUS STRIKE IN LAHJ - 23 NOV",
     "GUTERRES AI CALL IN BARBADOS - 23 NOV",
-    "DENMARK 'GHETTO LAW' RULING - 23 NOV",
-    "EU 22ND SANCTIONS - 23 NOV",
+    "VILLAVICENCIO CAR BOMB - 23 NOV",
+    "MEGASPEED BLACKLISTED - 23 NOV",
     "SHENZHOU-24 LAUNCH - 25 NOV",
 ]
 
@@ -593,8 +619,8 @@ def draw_masthead(c):
 
 
 def draw_region_strip(c):
-    c.text_center(512, 118, "EUROPE 7 - MIDDLE EAST 4 - ASIA 8 - "
-                 "AFRICA 1 - AMERICAS 7 - OCEANIA 2 - GLOBAL 1", 2, NAVY)
+    c.text_center(512, 118, "EUROPE 7 - MIDDLE EAST 4 - ASIA 9 - "
+                 "AFRICA 2 - AMERICAS 4 - OCEANIA 1 - GLOBAL 3", 2, NAVY)
 
 
 def draw_timeline(c):
@@ -604,10 +630,10 @@ def draw_timeline(c):
                  1, GREY)
     bx, bw = 12, 248
     blocks = [
-        ("00-06 OVERNIGHT - DRONE WAR 1", 1),
-        ("06-12 MORNING - DEAL 7, 06:43 UTC", 7),
-        ("12-18 AFTERNOON", None),
-        ("18-24 NIGHT - CRASH 10, 19:52 UTC", 10),
+        ("00-06 OVERNIGHT - BLAST 12, 01:00", 12),
+        ("06-12 MORNING - DEAL 7, 06:30", 7),
+        ("12-18 AFTERNOON - CRASH 10, 17:00", 10),
+        ("18-24 NIGHT - DOW 19, 21:00", 19),
     ]
     for i, (lab, num) in enumerate(blocks):
         x0 = bx + i * bw
@@ -718,8 +744,8 @@ def draw_footer(c):
     c.text_center(512, y + 36,
                   "MAP AND DRAWINGS ARE ORIGINAL VECTOR ART.", 1, GREY)
     c.text_center(512, y + 50,
-                  "SOURCES: REUTERS - BLOOMBERG - WSJ - AP - CNN - "
-                  "AL JAZEERA - IRNA - JMIC - YONHAP - XINHUA - UN", 1, GREY)
+                  "SOURCES: REUTERS - AP - BLOOMBERG - WSJ - "
+                  "AL JAZEERA - UN NEWS - ESA", 1, GREY)
 
 
 def build():

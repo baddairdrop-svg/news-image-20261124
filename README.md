@@ -30,28 +30,32 @@ with their real dates, not presented as the day's news.
 
 1. **Drone war** — Russia says it shot down 699 Ukrainian drones
    overnight, 355 aimed at Moscow; a drone strays into Poland and
-   NATO sends an AWACS. A strike on Zaporizhzhia kills 2.
-   (Reuters, Al Jazeera)
-2. **Riyadh tower struck** — A Houthi drone hits the PIF Tower,
-   the capital's tallest, a second strike in less than a week.
-   11 people wounded. (Reuters)
+   NATO sends an AWACS. A strike on Zaporizhzhia kills 2, wounds
+   40+. (Reuters, Al Jazeera)
+2. **Riyadh tower struck** — Saudi Arabia blames a Houthi drone
+   for the second strike in under a week on a tower in the
+   financial district. 11 people wounded. (Reuters)
 3. **Huawei guilty** — A Brooklyn jury convicts the Chinese
-   telecom giant on 10 of 12 counts. (Reuters, WSJ)
+   telecom giant on 10 of 12 counts, and clears it of
+   racketeering. (Reuters, WSJ)
 
 Grid: Senegal reinstated as Africa Cup champions (CAS); Zelenskyy
-confirms Ukraine's strike on the Russian ship Sparta II; a Gaza
-strike kills Hamas security chief Naeem Abu Nahel and six others;
-Sanofi agrees to buy Insmed for $41bn; Malaysia will send 6,500
-Rohingya back to Myanmar; Baghdad takes over Kurdish-held oilfields.
+confirms Saturday's strike on the Russian ship Sparta II, saying it
+carried weapons (claim unverified); a Gaza strike kills Hamas
+security chief Naeem Abu Nahel and six others; Sanofi agrees to buy
+Insmed for $41bn; Malaysia will send 6,803 Myanmar nationals back,
+1,500 by ship and 5,303 by air; Baghdad takes over Kurdish-held
+oilfields.
 
 The ALSO list adds the Eskisehir helicopter crash, Iran's claim of a
 fourth tanker hit by a mine in Hormuz, the Hanoi restaurant blast,
 Hasina's planned return, the UN's 47,000 women killed by partners, the
 Ulleung jet alert, the Bougainville vote, the Taplejung quake, the
-Cikande fire toll, the Solomons pact, the world chess match, the UN
-AI debate, the EU hybrid-car cap, Mexico's "El Chapo Isidro" trial,
-the Villavicencio car bomb, the Megaspeed blacklist, the ninth US
-measles death, the most distant black hole, Indonesia's VP
+Cikande fire toll, the Dow topping 50,000 as the Nasdaq slides, the
+world chess match, the UN AI debate, the EU hybrid-car cap, Mexico's
+"El Chapo Isidro" trial, WHO staff freed in Ituri after three days
+trapped, New York's ban on AI chatbot toys, the UK's nuclear-test
+veterans inquiry, Euclid's most distant quasar, Indonesia's VP
 candidates, a death sentence for spying in Beijing, and Portugal's
 budget vote.
 
