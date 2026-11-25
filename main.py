@@ -212,6 +212,9 @@ class Canvas:
                     self.set(xx, yy, color)
 
     def text(self, x, y, s, scale, color):
+        # The 5x7 font has uppercase glyphs only; uppercase here so no
+        # character ever falls through to the UNKNOWN box glyph.
+        s = s.upper()
         """Draw text; returns the x position after the last character."""
         cx = x
         for ch in s:
@@ -705,7 +708,7 @@ def draw_map_and_also(c):
     y, h = 720, 168
     # Map, left.
     c.text(12, y, "WHERE IT HAPPENED", 2, INK)
-    c.text_right(372, y + 3, "PINS CARRY THE STORY NUMBERS", 1, GREY)
+    c.text_right(372, y + 3, "PINS = STORY NUMBERS", 1, GREY)
     draw_map(c, 12, y + 22, 360, h - 26, PINS)
     # Also list, right: two columns of one-liners, numbers 10-30.
     ax = 392
